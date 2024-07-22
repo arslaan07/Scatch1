@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const upload = require('../config/multer-config')
 const productModel = require('../models/product-model')
+const userModel = require('../models/user-model')
 
 router.post("/create", upload.single('image'), async (req, res) => {
     try {
