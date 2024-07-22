@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const ownerModel = require('../models/owner-model')
+require('dotenv').config();
 
 console.log(process.env.NODE_ENV)
 
@@ -19,8 +20,9 @@ if(process.env.NODE_ENV === "development") {
     })
 }
 
-router.get("/", (req, res) => {
-    res.send("hey")
+router.get("/admin", (req, res) => {
+    let success = req.flash("success")
+    res.render("createproducts", {success})
 })
 
 
